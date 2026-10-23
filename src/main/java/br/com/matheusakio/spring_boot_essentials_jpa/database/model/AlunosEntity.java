@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table
 @NoArgsConstructor
@@ -27,4 +30,7 @@ public class AlunosEntity {
     @OneToOne
     @JoinColumn(name = "avaliacao_fisica_id")
     private AvaliacoesFisicasEntity avaliacaoFisica;
+
+    @OneToMany(mappedBy = "aluno")
+    private Set<TreinoEntity> treinos = new HashSet<>();
 }
